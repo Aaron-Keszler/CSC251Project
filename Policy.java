@@ -31,7 +31,6 @@ public class Policy {
          smokingStatus = smokeStatus;
          height = pHeight;
          weight = pWeight;
-   
    }
    
    
