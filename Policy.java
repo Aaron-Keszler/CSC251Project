@@ -1,5 +1,5 @@
 public class Policy {
-   // initialize values
+   // initializes values
    private int policyNumber;
    private String providerName;
    private String firstName;
