@@ -2,11 +2,13 @@ import java.util.Scanner;
 
 public class Project_Aaron_Keszler {
    public static void main(String[] args) {
+      // creates scanner for user input
       Scanner input = new Scanner(System.in);
       
+      // gets policy data from user input
       System.out.print("Please enter the Policy Number: ");
       int policyNumber = input.nextInt();
-      input.nextLine();
+      input.nextLine(); // clears keyboard buffer
       
       System.out.print("Please enter the Provider Name: ");
       String providerName = input.nextLine();
@@ -19,7 +21,7 @@ public class Project_Aaron_Keszler {
       
       System.out.print("Please enter the Policyholder's Age: ");
       int age = input.nextInt();
-      input.nextLine();
+      input.nextLine(); // clears keyboard buffer
       
       System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
       String smokingStatus = input.nextLine();
@@ -29,10 +31,13 @@ public class Project_Aaron_Keszler {
       
       System.out.print("Please enter the Policyholder's Weight (in pounds): ");
       double weight = input.nextDouble();
-
+      
+      input.nextLine(); // final buffer clear
+      
+      // creates policy object using inputted data
       Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
       
-      // output policy information
+      // outputs policy information
       System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
       System.out.println("Provider Name: " + policy.getProviderName());
       System.out.println("Policyholder's First Name: " + policy.getFirstName());
@@ -44,6 +49,7 @@ public class Project_Aaron_Keszler {
       System.out.printf("Policyholder's BMI: %.2f\n", policy.calculateBMI());
       System.out.printf("Policy Price: $%.2f\n", policy.calculatePolicyPrice());
       
+      // closes user input scanner
       input.close();
    }
 }

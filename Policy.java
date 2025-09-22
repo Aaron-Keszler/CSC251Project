@@ -1,5 +1,5 @@
 public class Policy {
-   // Don't forget to leave comments
+   // initialize values
    private int policyNumber;
    private String providerName;
    private String firstName;
@@ -65,6 +65,7 @@ public class Policy {
    public double calculatePolicyPrice() {
       double price = 600;
       
+      // calculates extra fees
       if (age > 50) {
          price += 75.0;
       }
