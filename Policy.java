@@ -2,7 +2,7 @@ public class Policy
 {  //fields
    private String policyNumber;
    private String providerName;
-   
+   private static int policyCount;
 
    /**
    No-arg constructor that explicitly initializes all fields
@@ -11,12 +11,6 @@ public class Policy
    {
       policyNumber = "";
       providerName = "";
-      firstName = "";
-      lastName = "";
-      age = 0;
-      smokingStatus = "";
-      height = 0;
-      weight = 0;
    }
    
    /**
@@ -34,12 +28,9 @@ public class Policy
    {
       policyNumber = pNumber;
       providerName = pName;
-      firstName = fName;
-      lastName = lName;
-      age = a;
-      smokingStatus = sStatus;
-      height = h;
-      weight = w;
+      
+      // keeps count of the number of policys made
+      policyCount++;
    }
    
    //getters//
