@@ -2,6 +2,7 @@ public class Policy
 {  //fields
    private String policyNumber;
    private String providerName;
+   private PolicyHolder policyHolder;
    private static int policyCount;
 
    /**
@@ -11,6 +12,8 @@ public class Policy
    {
       policyNumber = "";
       providerName = "";
+      policyHolder = new PolicyHolder();
+      policyCount++;
    }
    
    /**
@@ -24,12 +27,12 @@ public class Policy
    @param h The Policyholder's height
    @param w The Policytholder's weight
    */
-   public Policy(String pNumber, String pName, String fName, String lName,int a, String sStatus, double h, double w)
+   public Policy(String pNumber, String pName, PolicyHolder pHolder)
    {
       policyNumber = pNumber;
       providerName = pName;
-      
-      // keeps count of the number of policys made
+      policyHolder = pHolder;
+
       policyCount++;
    }
    
@@ -48,6 +51,22 @@ public class Policy
    public String getProviderName()
    {
       return providerName;
+   }
+   
+   /**
+   @return The Policy Holder
+   */
+   public PolicyHolder getPolicyHolder()
+   {
+      return policyHolder;
+   }
+   
+   /**
+   @return The Policy Count
+   */
+   public static int getPolicyCount()
+   {
+      return policyCount;
    }
    
       
@@ -69,7 +88,11 @@ public class Policy
       providerName = pName;
    }
    
-      
+   public void setPolicyHolder(PolicyHolder pHolder)
+   {
+      policyHolder = pHolder;
+   }
+   
   
    /**
    Calculates the Policy's price
@@ -87,14 +110,14 @@ public class Policy
       
       double price = BASE_PRICE;
       
-      if(age > AGE_THRESHOLD)
+      if(policyHolder.getAge() > AGE_THRESHOLD)
          price += ADDITIONAL_FEE_AGE;
          
-      if(smokingStatus.equalsIgnoreCase("smoker"))
+      if(policyHolder.getSmokingStatus().equalsIgnoreCase("smoker"))
          price += ADDITIONAL_FEE_SMOKING;
       
-      if(getBMI() > BMI_THRESHOLD)
-         price += ((getBMI() - BMI_THRESHOLD) * ADDITIONAL_FEE_PER_BMI);
+      if(policyHolder.getBMI() > BMI_THRESHOLD)
+         price += ((policyHolder.getBMI() - BMI_THRESHOLD) * ADDITIONAL_FEE_PER_BMI);
          
       return price;
    }
@@ -121,8 +144,8 @@ public class Policy
    public String toString()
    {
       return "Policy Number: " + policyNumber +
-      "\nProvider Name: " + providerName
+      "\nProvider Name: " + providerName +
       "\n" + policyHolder +
-      String.format("\nPolicy Price: %.2f", getPrice());
+      String.format("\nPolicy Price: $%.2f", getPrice());
    }
 }

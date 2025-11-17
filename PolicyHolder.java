@@ -7,7 +7,30 @@ public class PolicyHolder
    private String smokingStatus;
    private double height;
    private double weight;
-
+   
+   // no-arg constructor
+   public PolicyHolder()
+   {
+      firstName = "";
+      lastName = "";
+      age = 0;
+      smokingStatus = "";
+      height = 0.0;
+      weight = 0.0;
+   }
+   
+   // arg constructor
+   public PolicyHolder(String firstName, String lastName, int age, String smokingStatus, double height, double weight)
+   {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+      this.smokingStatus = smokingStatus;
+      this.height = height;
+      this.weight = weight;
+   }
+   
+   
    // getters
    
    /**
@@ -125,9 +148,9 @@ public class PolicyHolder
       return "Policyholder's First Name: " + firstName + 
       "\nPolicyholder's Last Name: " + lastName +
       "\nPolicyholder's Age: " + age +
-      "\nPolicyholder's Smoking Status: " + smokingStatus +
-      "\nPolicyholder's Height: " + height + 
-      "\nPolicyholder's Weight: " + weight +
+      "\nPolicyholder's Smoking Status (Y/N): " + smokingStatus +
+      "\nPolicyholder's Height: " + height + " inches" +
+      "\nPolicyholder's Weight: " + weight + " pounds" +
       String.format("\nPolicyholder's BMI: %.2f", getBMI());
    }
 }

@@ -44,9 +44,12 @@ public class Project_Aaron_Keszler
             inputFile.nextLine();
          if(inputFile.hasNext())
             inputFile.nextLine();
-            
+         
+         //create a policy holder object
+         PolicyHolder pHolder = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+         
          //create a Policy object and add it to our ArrayList
-         policyList.add(new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight));
+         policyList.add(new Policy(policyNumber, providerName, pHolder));
       
       }
       
@@ -54,6 +57,13 @@ public class Project_Aaron_Keszler
       for(Policy policy : policyList)
       { 
          //display information about the Policy
+         System.out.println(policy);
+         System.out.println();
+         
+         if(policy.getPolicyHolder().getSmokingStatus().equalsIgnoreCase("smoker"))//keep track of the number of smokers
+            numSmokers++;
+         
+         /** old policy code
          System.out.println("Policy Number: " + policy.getPolicyNumber());
          System.out.println("Provider Name: " + policy.getProviderName());
          System.out.println("Policyholder's First Name: " + policy.getFirstName());
@@ -65,12 +75,13 @@ public class Project_Aaron_Keszler
          System.out.printf("Policyholder's BMI: %.2f\n", policy.getBMI());
          System.out.printf("Policy Price: $%.2f\n", policy.getPrice());
          System.out.println();
+         */
          
-         if(policy.getSmokingStatus().equalsIgnoreCase("smoker"))//keep track of the number of smokers
-            numSmokers++;
       }
       
       //print out the number of smokers and non-smokers
+      System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
+      System.out.println();
       System.out.println("The number of policies with a smoker is: " + numSmokers);
       System.out.println("The number of policies with a non-smoker is: " + (policyList.size() - numSmokers) );
    }
