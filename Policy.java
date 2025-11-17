@@ -11,8 +11,8 @@ public class Policy
    {
       policyNumber = "";
       providerName = "";
-      FirstName = "";
-      LastName = "";
+      firstName = "";
+      lastName = "";
       age = 0;
       smokingStatus = "";
       height = 0;
@@ -34,8 +34,8 @@ public class Policy
    {
       policyNumber = pNumber;
       providerName = pName;
-      FirstName = fName;
-      LastName = lName;
+      firstName = fName;
+      lastName = lName;
       age = a;
       smokingStatus = sStatus;
       height = h;
@@ -124,4 +124,14 @@ public class Policy
       System.out.printf("Policy Price: $%.2f\n", getPrice());
    }
    */
+   
+   // toString method
+   
+   public String toString()
+   {
+      return "Policy Number: " + policyNumber +
+      "\nProvider Name: " + providerName
+      "\n" + policyHolder +
+      String.format("\nPolicy Price: %.2f", getPrice());
+   }
 }
