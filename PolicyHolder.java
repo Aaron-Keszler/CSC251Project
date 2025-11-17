@@ -1,8 +1,8 @@
 public class PolicyHolder 
 {
    //fields
-   private String FirstName;
-   private String LastName;
+   private String firstName;
+   private String lastName;
    private int age;
    private String smokingStatus;
    private double height;
@@ -15,7 +15,7 @@ public class PolicyHolder
    */
    public String getFirstName()
    {
-      return FirstName;
+      return firstName;
    }
    
    /**
@@ -23,7 +23,7 @@ public class PolicyHolder
    */
    public String getLastName()
    {
-      return LastName;
+      return lastName;
    }
    
    /**
@@ -76,7 +76,7 @@ public class PolicyHolder
    */
    public void setFirstName(String fName)
    {
-      FirstName = fName;
+      firstName = fName;
    }
    
    /**
@@ -84,7 +84,7 @@ public class PolicyHolder
    */
    public void setLastName(String lName)
    {
-      LastName = lName;
+      lastName = lName;
    }
    
    /**
@@ -117,5 +117,17 @@ public class PolicyHolder
    public void setWeight(double w)
    {
       weight = w;
+   }
+   
+   // toString method
+   public String toString()
+   {
+      return "Policyholder's First Name: " + firstName + 
+      "\nPolicyholder's Last Name: " + lastName +
+      "\nPolicyholder's Age: " + age +
+      "\nPolicyholder's Smoking Status: " + smokingStatus +
+      "\nPolicyholder's Height: " + height + 
+      "\nPolicyholder's Weight: " + weight +
+      String.format("\nPolicyholder's BMI: %.2f", getBMI());
    }
 }
